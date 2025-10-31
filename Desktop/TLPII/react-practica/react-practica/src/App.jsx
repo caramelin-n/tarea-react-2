@@ -13,8 +13,8 @@ function App() {
     <>
       <h1>Hola de nuevo, {user}</h1>
       <button>logout</button>
-      <Login onLogin={handleLogin} />
       <Register/>
+      <Login handleLogin={handleLogin} />
     </>
   )
 }
