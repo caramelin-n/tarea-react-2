@@ -1,0 +1,97 @@
+import "./Register.css"
+export const Register = () => {
+
+
+    
+
+  return (
+    <div className='register-container'>
+        <h2>Register</h2>
+      <form id="register-form">
+          <div class="form-group">
+            <label for="lastname">lastname</label>
+            <input
+              type="lastname"
+              id="lastname"
+              name="lastname"
+              required
+            />S
+          </div>
+          <div class="form-group">
+            <label for="firstname">firstname</label>
+            <input
+              type="firstname"
+              id="firstname"
+              name="firstname"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="username">username</label>
+            <input
+              type="username"
+              id="username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="submit-btn" disabled>
+            hecho
+
+          </button>
+        </form>
+    </div>
+  )
+};
+
+
+import { useState } from "react"
+
+export const Form = () => {
+
+    const [formulario, setFormulario] = useState({
+        usuario: '', lastname: '', password: ''
+    })
+
+    const handleChange = (event) => {
+
+        const { name, value } = event.target
+        
+        setFormulario({
+            //voy a dejar tal cual el formulario exeptuando lo que modifique luego.
+            ...formulario,
+            //puede venir usuario o password, independientemente de que input se ejecute
+            [name]: value
+        })
+    }
+
+  return (
+    <div>
+        <input type="text" name="usuario" value={formulario.usuario} onChange={handleChange}/>
+        <input type="text" name="lastname" value={formulario.lastname} onChange={handleChange}/>
+        <input type="text" name="password" value={formulario.password} onChange={handleChange}/>
+
+        <button onClick={()=>setFormulario({...formulario, usuario: 'boton'})}>Ver datos</button>
+    </div>
+  )
+}
